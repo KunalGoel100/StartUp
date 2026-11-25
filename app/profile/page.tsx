@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import SiteHeader from "@/components/SiteHeader";
+import CardFrame from "@/components/CardFrame";
+import CardImage from "@/components/CardImage";
 
 type Profile = {
   name?: string;
@@ -156,14 +158,14 @@ export default function ProfilePage() {
             ) : (
               <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {dresses.map((dress) => (
-                  <article
-                    key={dress.id}
-                    className="group overflow-hidden rounded-[2rem] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                  >
-                    <img
-                      src={dress.dress_images?.[0]?.image_url || "https://placehold.co/600x800?text=Dress"}
+                  <CardFrame>
+                    <CardImage
+                      src={
+                        dress.dress_images?.[0]?.image_url ||
+                        "https://placehold.co/600x800?text=Dress"
+                      }
                       alt={dress.title}
-                      className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="h-80 w-full object-cover"
                     />
                     <div className="p-5">
                       <p className="text-xs uppercase tracking-[0.25em] text-[#9d8b7a]">
@@ -192,7 +194,7 @@ export default function ProfilePage() {
                         Delete listing
                       </button>
                     </div>
-                  </article>
+                  </CardFrame>
                 ))}
               </div>
             )}
