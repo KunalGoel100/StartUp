@@ -1,0 +1,2 @@
+SupaBase: To have a database
+Password: Kunal_Startup@2000
