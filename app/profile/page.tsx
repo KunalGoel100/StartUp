@@ -97,7 +97,7 @@ export default function ProfilePage() {
                   <img
                     src={profile?.profile_image || "https://placehold.co/300x300?text=Profile"}
                     alt="Profile"
-                    className="h-36 w-36 rounded-full border-4 border-white bg-white object-cover shadow-md"
+                    className="h-45 w-45 rounded-full border-4 border-white bg-white object-cover shadow-md"
                   />
                   <div className="min-w-0 pb-1">
                     <h1 className="text-4xl font-semibold tracking-tight text-[#2f312d]">
@@ -121,14 +121,17 @@ export default function ProfilePage() {
                 </div>
                 <Link
                   href="/profile/edit"
-                  className="rounded-full bg-[#2f3b31] px-6 py-3 text-sm font-medium text-white transition hover:bg-[#425043]"
-                >
+                  className="rounded-full border-black/10 bg-black px-5 py-2.5 text-sm font-medium text-white
+                    transition-all duration-300 ease-out
+                    hover:-translate-y-0.5 hover:scale-[1.02]
+                    hover:bg-black hover:shadow-lg hover:shadow-black/20
+                    active:scale-[0.98]">
                   Edit Profile
                 </Link>
               </div>
 
               <div className="mt-10 max-w-3xl">
-                <h2 className="text-2xl font-medium text-[#2f312d]">My Story</h2>
+                <h2 className="text-3xl font-medium text-[#2f312d]">My Story</h2>
                 <p className="mt-4 leading-8 text-[#5c645a]">
                   {profile?.bio ||
                     "Tell buyers about yourself, your inspiration, and the story behind your creations."}
@@ -158,7 +161,7 @@ export default function ProfilePage() {
             ) : (
               <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {dresses.map((dress) => (
-                  <CardFrame>
+                  <CardFrame key={dress.id}>
                     <CardImage
                       src={
                         dress.dress_images?.[0]?.image_url ||
@@ -176,14 +179,20 @@ export default function ProfilePage() {
                       <div className="mt-5 flex gap-2">
                         <Link
                           href={`/collections/${dress.id}`}
-                          className="flex-1 rounded-xl border border-[#e4ddd4] py-3 text-center text-sm font-medium transition hover:bg-[#f5f2ed]"
-                        >
+                          className="rounded-full border-black/10 bg-black px-5 py-2.5 text-sm font-medium text-white
+                            transition-all duration-300 ease-out
+                            hover:-translate-y-0.5 hover:scale-[1.02]
+                            hover:bg-black hover:shadow-lg hover:shadow-black/20
+                            active:scale-[0.98]">
                           View
                         </Link>
                         <Link
                           href={`/edit-dress/${dress.id}`}
-                          className="flex-1 rounded-xl bg-[#2f3b31] py-3 text-center text-sm font-medium text-white transition hover:bg-[#425043]"
-                        >
+                          className="rounded-full border-black/10 bg-black px-5 py-2.5 text-sm font-medium text-white
+                            transition-all duration-300 ease-out
+                            hover:-translate-y-0.5 hover:scale-[1.02]
+                            hover:bg-black hover:shadow-lg hover:shadow-black/20
+                            active:scale-[0.98]">
                           Edit
                         </Link>
                       </div>

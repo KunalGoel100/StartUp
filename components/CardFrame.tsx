@@ -1,13 +1,17 @@
+import { ReactNode } from "react";
+
 type CardFrameProps = {
-  children: React.ReactNode;
+  children: ReactNode;
+  className?: string;
 };
 
 export default function CardFrame({
   children,
+  className = "",
 }: CardFrameProps) {
   return (
     <div
-      className="
+      className={`
         group
         overflow-hidden
         rounded-[1.75rem]
@@ -17,7 +21,8 @@ export default function CardFrame({
         duration-500
         hover:-translate-y-2
         hover:shadow-[0_28px_75px_rgba(42,49,39,0.12)]
-      "
+        ${className}
+      `}
     >
       {children}
     </div>

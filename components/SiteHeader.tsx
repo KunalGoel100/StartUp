@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function SiteHeader() {
   return (
-    <nav className="sticky top-0 z-50 border-b border-black/5 bg-[#f8f7f3]/88 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b border-black/10 bg-[#f8f7f3]/25 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <Link href="/" className="text-xl font-semibold tracking-[-0.04em]">Atelier Folk</Link>
 
@@ -13,18 +13,27 @@ export default function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-3">
-        <Link
-          href="/profile"
-          className="rounded-full border border-[#dfe3da] bg-white px-5 py-2.5 text-sm font-medium text-[#2f3b31]">
-          My Profile
-        </Link>
+          <Link
+            href="/profile"
+            className="rounded-full border-black/10 bg-white px-5 py-2.5 text-sm font-medium text-[#2f3b31]
+              transition-all duration-300 ease-out
+              hover:-translate-y-0.5 hover:scale-[1.02]
+              hover:bg-white hover:shadow-lg hover:shadow-black/20
+              active:scale-[0.98]"
+          >
+            My Profile
+          </Link>
 
-        <Link
-          href="/share-work"
-          className="rounded-full bg-[#2f3b31] px-5 py-2.5 text-sm font-medium text-white">
-          Share your work
-        </Link>
-      </div>
+          <Link
+            href="/share-work"
+            className="rounded-full border-black/10 bg-black px-5 py-2.5 text-sm font-medium text-white
+            transition-all duration-300 ease-out
+            hover:-translate-y-0.5 hover:scale-[1.02]
+            hover:bg-black hover:shadow-lg hover:shadow-black/20
+            active:scale-[0.98]">
+            Share your work
+          </Link>
+        </div>
       </div>
     </nav>
   );
